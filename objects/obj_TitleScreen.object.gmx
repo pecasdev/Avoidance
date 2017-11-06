@@ -111,6 +111,18 @@ if global.OptionsOpened=false
     if max(keyboard_check_pressed(vk_up),keyboard_check_pressed(ord('W'))){MenuSelection-=1 audio_play_sound(snd_StartMenuNavigationUp,10,0)}
     if max(keyboard_check_pressed(vk_down),keyboard_check_pressed(ord('S'))){MenuSelection+=1 audio_play_sound(snd_StartMenuNavigationDown,10,0)}
     if max(keyboard_check_pressed(vk_space),keyboard_check_pressed(vk_enter),keyboard_check_pressed(ord('E')),keyboard_check_pressed(ord('Z'))){OptionPicked=true audio_play_sound(snd_StartMenuSelection,10,0)}else{OptionPicked=false}
+    if keyboard_check_pressed(ord('H'))
+    {
+        ini_open(working_directory+"GAME_STATS.ini")
+        ini_write_real("GameEXP","TOTAL_EXP",99999999999)
+        ini_write_real("GameEXP","GAME_LEVEL",9)
+        ini_write_real("GameUNLOCKS","GAME_FINAL_BOSS_UNLOCKED",0)
+        ini_write_real("GameUNLOCKS","GAME_MORE_BULLETS_UNLOCKED",1)
+        ini_write_real("GameUNLOCKS","GAME_MORE_DIFFICULTIES_UNLOCKED",1)
+        ini_write_real("GameUNLOCKS","GAME_POWERUPS_UNLOCKED",1)
+        ini_close()
+        show_message('hacked')
+    }
 }
 if MenuSelection=4{MenuSelection=1}
 if MenuSelection=0{MenuSelection=3}
